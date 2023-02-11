@@ -24,13 +24,13 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
     inputWithdrawField.value=''; 
     // ai 1 line
 
+    const newTotalWithdraw=previousWithdrawTotal+newWithdrawAmount;
+    withdrawTotalElement.innerText=newTotalWithdraw;
+
     if(newTotalWithdraw > previousBalanceTotal){
         alert('You do not have sufficient balance');
         return;
     }
-
-    const newTotalWithdraw=previousWithdrawTotal+newWithdrawAmount;
-    withdrawTotalElement.innerText=newTotalWithdraw;
 
     const newBalanceTotal=previousBalanceTotal-newWithdrawAmount;
     balanceTotalElement.innerText=newBalanceTotal;

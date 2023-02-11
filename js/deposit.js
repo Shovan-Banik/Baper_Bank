@@ -10,9 +10,18 @@ document.getElementById('btn-deposit').addEventListener('click',function(){
     const depositPreviousTotalString=depositTotalElement.innerText;
     const depositPreviousTotal=parseFloat(depositPreviousTotalString);
     // without input filed for the get value from any html element  we need to use .innerText 
-
+    
+    // step-4: add numbers to set the total deposit
     const currentDepositTotal=depositPreviousTotal+NewDepositAmount;
+    // set the deposit total
     depositTotalElement.innerText=currentDepositTotal;
+    // step-5: get current balance total
+    const balanceTotalElement=document.getElementById('balance-total');
+    const previousBalanceTotalString=balanceTotalElement.innerText;
+    const previousBalanceTotal=parseFloat(previousBalanceTotalString);
+    // step-6: calculate current total balance
+    const currentBalanceTotal=previousBalanceTotal+NewDepositAmount;
+    balanceTotalElement.innerText=currentBalanceTotal;
 
     // clear deposit input field
     depositField.value='';

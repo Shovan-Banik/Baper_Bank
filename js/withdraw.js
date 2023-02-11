@@ -4,6 +4,15 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
     const newWithdrawAmountString=inputWithdrawField.value;
     const newWithdrawAmount=parseFloat(newWithdrawAmountString);
 
+     // function a return paoar por code exit kore bole nicher 1 line code ta k aikhane ane rakhci...niche ak copy commnet akare rekhe dici
+     inputWithdrawField.value=''; 
+     // ai 1 line
+
+    if(isNaN(newWithdrawAmount)){
+        alert('Please insert a number');
+        return;
+    }
+
 
     const withdrawTotalElement=document.getElementById('withdraw-total');
     const previousWithdrawTotalString=withdrawTotalElement.innerText;
@@ -20,17 +29,16 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
     const previousBalanceTotalString=balanceTotalElement.innerText;
     const previousBalanceTotal=parseFloat(previousBalanceTotalString);
 
-    // function a return paoar por code exit kore bole nicher 1 line code ta k aikhane ane rakhci...niche ak copy commnet akare rekhe dici
-    inputWithdrawField.value=''; 
-    // ai 1 line
+   
 
-    const newTotalWithdraw=previousWithdrawTotal+newWithdrawAmount;
-    withdrawTotalElement.innerText=newTotalWithdraw;
-
-    if(newTotalWithdraw > previousBalanceTotal){
+    if(newWithdrawAmount > previousBalanceTotal){
         alert('You do not have sufficient balance');
         return;
     }
+
+    const newTotalWithdraw=previousWithdrawTotal + newWithdrawAmount;
+    withdrawTotalElement.innerText=newTotalWithdraw;
+    // aikhane rakhci
 
     const newBalanceTotal=previousBalanceTotal-newWithdrawAmount;
     balanceTotalElement.innerText=newBalanceTotal;
